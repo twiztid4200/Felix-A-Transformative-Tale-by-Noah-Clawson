@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRANSFORMATIVE TALE • Felixology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Instrument+Sans:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap');
+        
+        :root {
+            --lavender: #7C3AED;
+            --gold: #D4AF37;
+            --deep-purple: #2D1B4E;
+        }
+        
+        body {
+            font-family: 'Instrument Sans', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .story-text {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #3F2A5E;
+        }
+
+        .story-text p {
+            margin-bottom: 1.35em;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #2D1B4E;
+            letter-spacing: -0.02em;
+        }
+
+        .lavender-accent {
+            color: #7C3AED;
+        }
+
+        .gold-accent {
+            color: #B8860B;
+        }
+
+        .story-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .thematic-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            opacity: 0.85;
+        }
+
+        .thematic-divider::before,
+        .thematic-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #C4B5FD, transparent);
+        }
+
+        .kintsugi {
+            position: relative;
+        }
+
+        .kintsugi::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                #D4AF37 15%,
+                #E8D48B 35%,
+                #D4AF37 50%,
+                #E8D48B 65%,
+                #D4AF37 85%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: kintsugi-glow 4s ease infinite;
+        }
+
+        @keyframes kintsugi-glow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 200% 50%; }
+        }
+
+        .memory-box {
+            background: linear-gradient(145deg, #F8F1FF 0%, #F3E8FF 100%);
+            border-left: 5px solid #7C3AED;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .memory-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(124 58 237 / 0.1), 0 8px 10px -6px rgb(124 58 237 / 0.1);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #7C3AED;
+            transform: translateY(-1px);
+        }
+
+        .chapter-anchor {
+            scroll-margin-top: 80px;
+        }
+
+        .floating-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.85);
+        }
+
+        .prose-poetic {
+            font-size: 1.075rem;
+            line-height: 1.9;
+        }
+
+        .whisper {
+            font-style: italic;
+            color: #6B5B95;
+            opacity: 0.9;
+        }
+
+        .scene-transition {
+            font-size: 0.875rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9F7AEA;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F5FF] text-[#2D1B4E]">
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50 border-b border-[#EDE4FF] bg-white/90 backdrop-blur-lg">
+        <div class="max-w-screen-xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="https://felixology.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-3 group">
+                <div class="flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] shadow-inner group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-infinity text-white text-3xl"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-2xl tracking-tighter heading-serif group-hover:text-[#7C3AED] transition-colors">FELIXOLOGY</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#the-tale" class="nav-link text-[#3F2A5E] hover:text-[#7C3AED]">The Tale</a>
+                <a href="#chapters" class="nav-link text-[#3F2A5E] hover:text-[#7C3AED]">Chapters</a>
+                <a href="#closing" class="nav-link text-[#3F2A5E] hover:text-[#7C3AED]">The Thread</a>
+            </div>
+            
+            <div class="flex items-center gap-x-3">
+                <div class="px-4 py-1.5 rounded-3xl bg-[#F3E8FF] text-[#6D28D9] text-xs font-semibold flex items-center gap-x-2">
+                    <i class="fa-solid fa-heart text-[#7C3AED]"></i>
+                    <span class="hidden sm:inline">For Noah &amp; Libby</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="relative pt-16 pb-20 border-b border-[#EDE4FF] overflow-hidden">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Decorative top element -->
+                <div class="flex justify-center mb-6">
+                    <div class="inline-flex items-center gap-x-2 px-5 py-2 rounded-3xl bg-white shadow-sm border border-[#EDE4FF]">
+                        <div class="flex -space-x-1">
+                            <div class="w-3 h-3 bg-[#7C3AED] rounded-full"></div>
+                            <div class="w-3 h-3 bg-[#C026D3] rounded-full"></div>
+                            <div class="w-3 h-3 bg-[#D4AF37] rounded-full"></div>
+                        </div>
+                        <span class="text-xs tracking-[3px] font-semibold text-[#6B5B95]">A TRANSFORMATIVE TALE</span>
+                    </div>
+                </div>
+
+                <h1 class="text-7xl md:text-8xl leading-none tracking-tighter heading-serif mb-4">
+                    TRANSFORMATIVE<br>TALE
+                </h1>
+                
+                <p class="text-2xl text-[#6B5B95] font-light tracking-tight mb-2">
+                    For Noah and Libby at 
+                    <a href="https://felixology.com" target="_blank" rel="noopener noreferrer" class="text-[#7C3AED] hover:underline font-medium">Felixology</a>
+                </p>
+                
+                <p class="text-sm uppercase tracking-[3px] text-[#9F7AEA] mb-8">Woven by Noah Clawson</p>
+
+                <div class="flex justify-center items-center gap-x-4">
+                    <a href="#the-tale" 
+                       class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-3xl bg-[#2D1B4E] hover:bg-[#1F1638] text-white font-semibold text-sm tracking-wider transition-all active:scale-[0.985]">
+                        BEGIN THE JOURNEY
+                        <i class="fa-solid fa-arrow-down group-active:translate-y-0.5 transition"></i>
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex justify-center">
+                    <div class="flex items-center gap-x-2 text-xs text-[#9F7AEA]">
+                        <i class="fa-solid fa-infinity"></i>
+                        <span class="font-mono tracking-[2px]">THE WARRIOR WEAVER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Subtle decorative elements -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-x-8 opacity-30">
+            <i class="fa-solid fa-cat text-4xl text-[#7C3AED]"></i>
+            <i class="fa-solid fa-infinity text-4xl text-[#D4AF37]"></i>
+            <i class="fa-solid fa-book text-4xl text-[#7C3AED]"></i>
+        </div>
+    </header>
+
+    <!-- INTRO / DEDICATION -->
+    <div class="max-w-screen-xl mx-auto px-6 pt-14 pb-8">
+        <div class="max-w-2xl mx-auto text-center">
+            <p class="text-lg text-[#5C4A7A] leading-relaxed">
+                This is the story of a mother’s love that refuses to be bound by time or space.<br>
+                Of threads that connect the living and the departed.<br>
+                Of a little boy who became a cat, a weaver, and a guiding light.
+            </p>
+            <div class="mt-6 text-sm text-[#9F7AEA] flex justify-center items-center gap-x-2">
+                <div class="h-px w-8 bg-[#C4B5FD]"></div>
+                <span class="font-medium tracking-widest">IN MEMORY • IN LOVE • IN TRANSFORMATION</span>
+                <div class="h-px w-8 bg-[#C4B5FD]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- THE TALE -->
+    <div id="the-tale" class="max-w-screen-xl mx-auto px-6 pb-16">
+        <div class="story-container">
+            
+            <!-- Chapter 1 -->
+            <div id="chapter-1" class="chapter-anchor pt-8">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter I</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Crosswalk</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>On her way towards the farmer’s market, Libby trudged past the ancient Masonic Building on Main Street. The late summer sun dried her tears, while the early fall breeze carried them away. This glorious interplay of warmth and coolness only intensified her loss.</p>
+                
+                <p>Just ahead, at the intersection of Walnut and Main, a predator sensed her pain and prepared to ambush her. As Libby stepped into the crosswalk, a young woman and a little boy emerged from the other end. The woman was clasping the boy’s hand. In her other hand, she carried a tote bag brimming with produce and specialty items from the farmer’s market.</p>
+                
+                <div class="thematic-divider my-10">
+                    <div class="px-4 py-1 bg-white rounded-2xl shadow-sm border border-[#EDE4FF] flex items-center gap-x-2 text-sm">
+                        <i class="fa-solid fa-soap text-[#7C3AED]"></i>
+                        <span class="font-medium text-[#6B5B95]">Apple Orchard Soap</span>
+                    </div>
+                </div>
+                
+                <p>As they passed each other, the little boy said, “Mommy mommy. Can I smell the soap again?” “Okay, Felix,” said the mother warmly, “but this is the last time.” She handed the boy a brick of soap with an apple orchard design on the wrapping. The boy took a big sniff and began jumping up and down. “Grandma squares, Grandma squares,” he shouted with delight.</p>
+                
+                <p>At this tiny oasis of joy, Libby let her guard down and smiled at the boy. The bluest beast lurched forth from woeful waters and seized her with crocodilian force. Libby screeched like locked tires. Startled, the beast released her and withdrew back into the woeful waters.</p>
+                
+                <p class="whisper">The little boy then spoke: “Mommy, watch me blink.”</p>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div id="chapter-2" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter II</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Mr. Chestnut</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Libby became aware of a car idling in the middle of Walnut Street. The man behind the wheel had saucer eyes and was clutching the steering wheel. From underneath the car, a brown blur sprang out and dashed across the street.</p>
+                
+                <p>Then, Libby heard the mother’s warm voice: “Can you blink again.”</p>
+                
+                <p>Libby found herself on the sidewalk of Walnut Street standing over a chestnut cat. “Hello Mr. Chestnut. How are you?” she asked. Chestnut began to purr and exposed his tummy. Libby leaned over to pat him, but he pushed himself away with his hind legs. He began backstroking in the sinuous loops of the infinity symbol alongside the Masonic building.</p>
+                
+                <div class="my-8 flex justify-center">
+                    <div class="inline-flex items-center gap-x-3 px-6 py-3 bg-white rounded-3xl border border-[#EDE4FF] shadow-sm">
+                        <i class="fa-solid fa-infinity text-3xl text-[#7C3AED]"></i>
+                        <span class="text-sm font-medium text-[#5C4A7A]">The infinity loops of memory</span>
+                    </div>
+                </div>
+                
+                <p>Libby laughed. “Where in the world did you come from?” she asked. Chestnut took one of his front paws and jiggled his identification tag hanging from his lavender collar. Libby squinted her eyes and leaned forward. “Felix!” she exclaimed.</p>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div id="chapter-3" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter III</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Door in the Masonic Building</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Felix sprang to his paws, darted towards an entrance at the side of the masonic building, bound down four stairs, braced his two paws against the front door, and pushed. With a loud creak, the weather-beaten door edged open. Felix slipped through the slit and into the space beyond.</p>
+                
+                <p>Libby focused on the partially opened door with her mouth agape. Then, Felix poked his head back through the crack and said, “Meeoow.” Libby inched closer, but before she could step down, he withdrew his head.</p>
+                
+                <p>Libby descended the steps, and nudged open the door with a tremulous <span class="font-mono text-[#9F7AEA]">eeeeeak</span>. Beyond, gaped an impenetrable darkness. She paused at the entranceway — looking, listening, smelling. Nothing… The darkness yielded no echo, no scent, no discernable boundary.</p>
+                
+                <p class="whisper">“What do you want to show me?” she asked.</p>
+                
+                <div class="thematic-divider">
+                    <div class="px-5 py-1.5 rounded-2xl bg-gradient-to-r from-[#7C3AED]/10 to-transparent flex items-center gap-x-2 text-sm">
+                        <i class="fa-solid fa-door-open text-[#7C3AED]"></i>
+                        <span class="font-medium">The threshold</span>
+                    </div>
+                </div>
+                
+                <p>From the void, a breeze of sweet lavender caressed her face. Simultaneously, a liquid yellow light gradually unfurled, illuminating a giant column of smooth lavender bricks. The blackness receded to just beyond that column. From that beyond, the sounds of children playing echoed distantly.</p>
+                
+                <p>Then, a beckoning yowl silenced the echoes, <span class="font-medium">“Meeeoommm.”</span> Libby crept around the column and continued into the blackness. As she did so, the light behind her vanished, and a light ahead of her glowed.</p>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div id="chapter-4" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter IV</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Kintsugi Seam</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>A gray wall emerged in front of her. Down the center of this wall, a shadowy fissure gashed through a precision-fitted puzzle of varied granite blocks.</p>
+                
+                <p>Felix poked his head out of the gash and blinked at Libby. She found herself maneuvering her body past the fissure. As she did so, the illumination behind her unspooled into strands. These then threaded around her and into the space beyond. The final threads wove the gash shut into a golden kintsugi seam.</p>
+                
+                <div class="kintsugi my-8 p-6 bg-white rounded-3xl border border-[#EDE4FF]">
+                    <p class="text-center text-sm text-[#6B5B95] italic">“The cracks are where the light gets in… and the gold remembers.”</p>
+                </div>
+                
+                <p>In front of her, a constricted hallway burrowed into the beyond… As she touched the rough, uneven plaster walls, she felt the paper-mache trees that Felix had once designed. From beyond, the hall exhaled the scent of lavender, and Libby inhaled a memory.</p>
+            </div>
+
+            <!-- Memory Box 1 -->
+            <div class="memory-box my-10 p-8 rounded-3xl">
+                <div class="flex gap-x-4">
+                    <div>
+                        <i class="fa-solid fa-mug-hot text-3xl text-[#7C3AED]"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-medium text-[#5C4A7A] mb-1">November rain. Cafe window.</p>
+                        <p class="text-[#3F2A5E]">Felix hummed along to “Anywhere Is” by Enya. He was drinking his favorite beverage — a lavender London fog. As he raised the mug to his lips, he said <span class="font-semibold">“upstairs.”</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 5 -->
+            <div id="chapter-5" class="chapter-anchor pt-8">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter V</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Spiral Staircase</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>She found herself looking at dark wooden treads and risers with iron inlays. In front of her, a steep, spiral staircase vined upward. Then, a call beckoned from above. <span class="font-medium">“Mmmooommm, mmmooommm.”</span></p>
+                
+                <p>Libby began her ascent. As she placed her foot on each stair, she envisioned her son footing the splayed iron pedal of his industrial sewing machine. She could see the needle punctuating the material on the wooden mahogany table.</p>
+                
+                <p>The staircase began to thrum and reverberate.<br>
+                <span class="font-mono text-[#9F7AEA] tracking-widest text-sm">Thrumthrumthrum… Thwackthwackthwackthwackthwack.</span><br>
+                <span class="font-mono text-[#9F7AEA] tracking-widest text-sm">Thrumthrumthrum. thwackthwackthwackthwackthwack.</span></p>
+                
+                <p>When Libby reached the top of the stairs, the thrumthwacking stopped. She entered a hall of monotone gray concrete that delved forward a short distance before forsaking hope at a dead-end.</p>
+                
+                <p class="whisper">“Why have you led me to this dead-end?” she asked.</p>
+                
+                <p>A voice both masculine and feminine answered: <span class="font-medium">“The future is past. The past is backwards. Backwards is onwards.”</span></p>
+            </div>
+
+            <!-- Chapter 6 -->
+            <div id="chapter-6" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter VI</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Warrior Weaver</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>From behind her, the hall exhaled a fragrant breath of lavender and bergamot. Libby turned around. Where the stairs had once been, a canvas of black stretched. Her heart sank, but then a tiny star-like speck emerged in the center of the canvas.</p>
+                
+                <p>The star began to rapidly expand, and the canvas deepened into a three-dimensional vista. In the background of this vision, a night sky and a day sky merged to form a firmament. In the forefront, the star had transformed into a skein of lavender and yellow yarn.</p>
+                
+                <p>The melodious sound of a bubbling brook murmured from the vista. Both skies began to swirl out of the aperture in whorls and emblazoned the ceiling of the hall. The skein began to spin and unspool yarns that snaked their way out of the portal. They gently caressed Libby as they diverged around her and vined up the walls. As they did so, they sprouted a network of threads that burrowed into the concrete.</p>
+                
+                <div class="thematic-divider my-10">
+                    <span class="px-4 text-xs tracking-[4px] font-semibold text-[#9F7AEA]">THE WEAVER APPEARS</span>
+                </div>
+                
+                <p>The hallway began to reverberate, and the skein dissolved into lavender butterflies with yellow swirls. Libby beamed with joy as the butterflies fluttered past her and alighted on the vines.</p>
+                
+                <p>Then, the androgynous voice spoke: <span class="font-semibold">“I love you even in death.”</span></p>
+                
+                <p>Libby turned back around. “Felix!” she exclaimed.</p>
+                
+                <p>Upon a lavender cloud interspersed with bergamots, he stood weaving upon his antique sewing machine. A luminous strand stretched from the firmament above, passed through his needle, and transformed into vines. The fragrance of Felix wafted into the hall as these vines blanketed the wall and sprouted lavender leaves and luscious yellow fruits.</p>
+                
+                <div class="my-10 p-8 border-l-4 border-[#D4AF37] bg-white/70 rounded-r-3xl">
+                    <p class="text-lg">With his chestnut beard and calm stoicism, he was the warrior — <span class="font-semibold">Odysseus</span>.</p>
+                    <p class="text-lg mt-1">With his uncreating and creating, he was the weaver — <span class="font-semibold">Penelope</span>…</p>
+                    <p class="mt-4 text-xl font-semibold text-[#2D1B4E]">He was <span class="text-[#7C3AED]">Felix the warrior weaver</span>.</p>
+                </div>
+                
+                <p>“Felix,” cried Libby, “come home with me.”</p>
+                
+                <p>Felix stopped weaving and said, <span class="font-medium">“I will forever be everywhere, but never there. Imbibe what we have always already done.”</span></p>
+            </div>
+
+            <!-- Chapter 7 -->
+            <div id="chapter-7" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter VII</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Grandmother Clocks</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Libby and Felix then blinked in unison. When Libby opened her eyes, she saw blurry gray and felt cold concrete pressing against her nose. She jerked backwards and frantically looked around. All the vines, butterflies, and skies had vanished. She was back in the dim concrete hall; both ends were now dead ends.</p>
+                
+                <p>“Felix, where are you?” she cried.</p>
+                
+                <p>The hall shuddered, and a gong reverberated at the far end of the hall. A golden thread emerged from the concrete of the distant wall and snaked into an infinity symbol. Within the golden loops, ivory strands wove tightly together into unadulterated white. Black strands then formed pupil-like circles in the two white centers.</p>
+                
+                <p>A second gong sounded, and more black strands began to weave roman numerals around the inner periphery of each loop. A third gong — chestnut strands began weaving into two wooden cases.</p>
+                
+                <p>By the time she reached the wall, the gong had sounded a total of twelve times, and the strands had finished creating a two-faced timepiece. Two identical grandmother clocks were partially embedded in the wall. Their dark-chestnut bodies adjoined on the side. The hour and minute hands of both were frozen at the 12 o’clock position.</p>
+            </div>
+
+            <!-- The Mug -->
+            <div class="my-10 max-w-md mx-auto">
+                <div class="bg-white border border-[#EDE4FF] rounded-3xl p-8 text-center shadow-sm">
+                    <div class="mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-mug-hot text-5xl text-[#7C3AED]"></i>
+                    </div>
+                    <p class="font-semibold mb-1">A lavender London fog</p>
+                    <p class="text-sm text-[#6B5B95]">Still warm. The essence of Felix.</p>
+                    <div class="mt-6 text-xs tracking-widest text-[#9F7AEA]">LEFT CLOCK SPINS BACKWARD • RIGHT CLOCK SPINS FORWARD</div>
+                </div>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>On top of the clock was a flat surface, upon which rested a lavender mug emblazoned with yellow butterflies. As Libby grasped the mug by the handle, she felt warmth radiating from the porcelain and smelled the essence of Felix. Inside the mug was his favorite drink — a lavender London fog. Libby took a sip and beamed.</p>
+                
+                <p>Immediately, the hands on the left-hand clock began spinning backwards while the hands on the right-hand clock began spinning forwards.</p>
+                
+                <p>From the timepiece emanated the ethereal voice of Enya singing “Anywhere Is.” Libby closed her eyes and listened to Felix’s favorite artist.</p>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div id="chapter-8" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter VIII</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Windows to Yesterday</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>When she opened her eyes, she was in the middle of the hall facing one of the long walls, which had manifested a giant glass window. The two clocks sounded together in a chime that straddled the line between harmony and discord.</p>
+                
+                <p>Libby looked out the window… A cascading stream; currents upon currents whorling, stretching, diverging <span class="font-medium text-[#7C3AED]">griefjoygriefjoygriefjoygriefjoy</span>.</p>
+                
+                <div class="memory-box my-8 p-7 rounded-3xl">
+                    <p class="font-medium mb-3">New York night. A swath of light. Snow falling on a Brooklyn street.</p>
+                    <p class="text-sm">Tory Burch front window. Holiday display. Cross-stitch birch trees.</p>
+                    <p class="mt-4 text-xs text-[#6B5B95]">Felix created them.</p>
+                </div>
+                
+                <p>She remembered the phone call. Big Heavy Studios contractor. “Hello, this is Andrew… I’m looking for Felix. I haven’t heard from him in a while.”</p>
+                
+                <p>Her mouth moved. The words shivered like terrified puppies. “I’m sorry, Felix passed away a week ago.”</p>
+                
+                <p class="italic text-[#6B5B95]">“In my thirty years… he was the most talented artist I’ve ever worked with.”</p>
+            </div>
+
+            <!-- Chapter 9 -->
+            <div id="chapter-9" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter IX</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Bubbles of Memory</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Libby blinks. When she opens her eyes, the window is gone. Both of the dead ends are now a canvas of black. From the black where Libby had been, a luminous strand stretches down the hall and enters the black where she had been not.</p>
+                
+                <p>She hears a sudden <span class="font-mono">POP!</span> like a cork bursting out of a champagne bottle. The opening theme of the Lawrence Welk show wafts forth from the depths of been-not.</p>
+                
+                <p>A bubble emerges from the canvas of not and drifts down the hall. Within the iridescent orb, Libby sees a burgundy theater curtain open to reveal a stage. Clapping sounds. From everywhere and nowhere, a voice speaks: <span class="font-semibold">“ACTS presents SEUSSICAL.”</span></p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-10">
+                    <div class="bg-white p-5 rounded-2xl border border-[#EDE4FF]">
+                        <div class="text-xs text-[#9F7AEA] mb-1">POP!</div>
+                        <p class="font-medium">Frankie in Grinch costume with Santa hat.<br><span class="text-sm text-[#6B5B95]">My son!</span></p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-[#EDE4FF]">
+                        <div class="text-xs text-[#9F7AEA] mb-1">POP!</div>
+                        <p class="font-medium">Bekah in Who costume.<br><span class="text-sm text-[#6B5B95]">My daughter!</span></p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-[#EDE4FF]">
+                        <div class="text-xs text-[#9F7AEA] mb-1">POP!</div>
+                        <p class="font-medium">Horton sits in Felixtree and sings.<br><span class="text-sm text-[#6B5B95]">Felix crafts a paper-mache tree.</span></p>
+                    </div>
+                </div>
+                
+                <p>Backstage. Big brother. Little sister. Felix sits in front of a mirror. Bekah runs her fingers through Felix’s hair. They laugh with crazy Who hair. Bekah paints makeup on Felix’s face. They laugh.</p>
+                
+                <p class="text-center text-lg font-medium my-8 text-[#5C4A7A]">“Come home with us,” cries Libby.</p>
+                
+                <p class="text-center">Crazyhair Felix turns and speaks: <span class="font-semibold">“I will forever be everywhere, but never there.”</span></p>
+                
+                <p class="text-center mt-8 text-sm text-[#9F7AEA]">POP!!!</p>
+            </div>
+
+            <!-- Chapter 10 -->
+            <div id="chapter-10" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter X</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Granny’s Wisdom</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Back in the Silent Hall. Luminous strand stretching between the two voids. Water condensing on gray walls — <span class="font-mono">dripdripdrip</span> onto floors. Libby cries.</p>
+                
+                <p>The canvas of not-been exhales an autumnal breath unto Libby. The breath of grass, hay, and nuttiness carries her tears away.</p>
+                
+                <p>The luminous strand shimmers with hues of red, yellow, and blue. On the canvas of been-not, tendrils of deep ochers, burnt siennas, and golden ambers branch outward… revealing yesteryear’s harvest — a sky of whites and blue, a great field of wheat. People swing scythes and reap the wheat.</p>
+                
+                <p>The image reforms into a tractor mowing a great field of wheat… then into a multistory industrial brick complex. Towering chimneys belch black smoke. Painted on the brick: <span class="font-semibold">Postum Cereal Co. LTD.</span></p>
+                
+                <div class="my-8 p-6 bg-[#F3E8FF] rounded-3xl flex gap-x-4 items-start">
+                    <i class="fa-solid fa-glasses text-3xl text-[#7C3AED] mt-1"></i>
+                    <div>
+                        <p class="font-medium">Granny appears in a bubble, drinking iced Postum.</p>
+                        <p class="mt-3 text-[#5C4A7A]">“Everything has a reason,” she says.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 11 -->
+            <div id="chapter-11" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter XI</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Gramps’ Shop &amp; Apple Oat Squares</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>The been-not canvas vanishes. Behind it, the luminous strand snakes up a dark wood staircase.</p>
+                
+                <p>Libby follows the strand up the stairs. From the dark wood emanates scents of pine tar, old wood and motor oil. “Gramps shop,” she whispers.</p>
+                
+                <p>With each step, the stairs speak their mind — <span class="font-mono">eeeek, eeeek, eeeek</span>. The fragrance of Apple Oat Squares begins to mix with the smell of Gramps’ shop.</p>
+                
+                <p>“Oh, Granny’s Apple Oat Squares,” Libby whispers.</p>
+                
+                <p>The sound of her Granny singing the hymn <span class="italic">Love at Home</span> floods the stairwell. Libby hears Granny open the oven door — <span class="font-mono">eeek</span>.</p>
+                
+                <p>Libby finds herself sitting in a rocking chair. On the brick wall is a large portrait of the Assabet Mill. In front of her, two eye-shaped tables join together at their points to create an infinity table.</p>
+                
+                <div class="my-8 text-sm bg-white p-6 rounded-2xl border border-[#EDE4FF]">
+                    <p class="font-medium mb-3">Books on the infinity table:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-[#5C4A7A]">
+                        <div>• <span class="font-medium">Twenty Years at the Hull House</span> — Jane Addams</div>
+                        <div>• <span class="font-medium">The Public and its Problems</span> — John Dewey</div>
+                        <div>• <span class="font-medium">The Gospel of Wealth</span> — Andrew Carnegie</div>
+                        <div>• <span class="font-medium">The Psychological Foundations of Education</span> — William Torrey Harris</div>
+                    </div>
+                </div>
+                
+                <p>“Granny, why do you have these books?” Libby asks.</p>
+                <p class="whisper">“There’s a reason,” answers Granny.</p>
+            </div>
+
+            <!-- Chapter 12 -->
+            <div id="chapter-12" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter XII</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">Felixology — The Vision</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>Granny points out the window. “Look down there.” Libby sees a young woman leading preschoolers down a sidewalk beside the Assabet River. “Maynard Knowledge Beginnings opened a Kindercare in building number four.”</p>
+                
+                <p>From everywhere and nowhere, the song <span class="italic">Time Adventure</span> resonates.</p>
+                
+                <p>Bubbles emerge from the Assabet River. One hits the window. <span class="font-mono">POP!</span></p>
+                
+                <p>The window telescopes onto a little boy jumping with excitement, pointing to where the Assabet flows from underneath the Main Street Bridge.</p>
+                
+                <p>A chestnut otter swims out on his back, holding a lavender flower to his chest. He backstrokes in the sinuous loops of the infinity symbol… and winks.</p>
+                
+                <p class="text-center my-6"><span class="font-semibold text-xl text-[#7C3AED]">“Felix!”</span> Libby gasps.</p>
+                
+                <p>The window telescopes into Felix’s lavender pupils… and Libby blinks.</p>
+            </div>
+
+            <!-- Final Chapter -->
+            <div id="chapter-13" class="chapter-anchor pt-16">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <span class="scene-transition">Chapter XIII</span>
+                    <div class="flex-1 h-px bg-gradient-to-r from-[#C4B5FD] to-transparent"></div>
+                </div>
+                <h2 class="section-header text-4xl mb-8 tracking-tight">The Register at Felixology</h2>
+            </div>
+
+            <div class="story-text prose-poetic">
+                <p>When she opens her eyes she is standing in front of a lavender staircase. A single bubble drifts down the stairs. Inside the orb: Finn the Human and Jake the Dog. <span class="font-mono">POP!</span> The staircase pulses with <span class="italic">Come Along with Me</span>.</p>
+                
+                <p>Yellow-like spots emerge on the stairs and morph into small childlike footprints. More footprints of all sizes appear. The staircase widens. Narrow bookshelves materialize on the sides of every stair.</p>
+                
+                <p>Bubbles drift down. Falkor flies through the sky. <span class="italic">The Neverending Story</span> pulses through the staircase. Libby smiles and sings along.</p>
+                
+                <div class="my-8 p-7 bg-gradient-to-br from-[#7C3AED]/5 to-white rounded-3xl border border-[#C4B5FD]">
+                    <p class="font-medium text-center">Ideas pop into her head:</p>
+                    <p class="text-center mt-2 text-lg"><span class="font-semibold">Felix Memorial • Family • Books • Whimsy</span></p>
+                    <p class="text-center text-sm mt-3 text-[#6B5B95]">Felix sections: Nathaniel Hawthorne • Edward Gorey • Edgar Allan Poe</p>
+                </div>
+                
+                <p>From the been-not, loving voices speak out:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-6 text-sm">
+                    <div class="bg-white px-5 py-3 rounded-2xl border border-[#EDE4FF]">“This store is such a reprieve.”</div>
+                    <div class="bg-white px-5 py-3 rounded-2xl border border-[#EDE4FF]">“Mommy, look at this!”</div>
+                    <div class="bg-white px-5 py-3 rounded-2xl border border-[#EDE4FF]">“When is your next poetry event?”</div>
+                    <div class="bg-white px-5 py-3 rounded-2xl border border-[#EDE4FF]">“I love your section on Jane Addams and John Dewey!”</div>
+                </div>
+                
+                <p>Libby blinks… When she opens her eyes she is standing in front of the register.</p>
+                
+                <p>In front of her is a young woman and a little boy. The woman holds a tote bag brimming with produce. In her other hand, two books.</p>
+                
+                <p class="italic">“I love this store,” she says, handing the books to Libby.</p>
+                
+                <p>Libby scans them — <span class="font-mono text-xs">beep beep</span>.</p>
+                <p class="text-sm">Twenty Years at the Hull House by Jane Addams<br>
+                The Public and its Problems by John Dewey</p>
+                
+                <p class="mt-6">“Felix, give her your book.” The little boy hands a book to Libby.</p>
+                <p>Libby scans it. <span class="font-mono text-xs">Beep.</span></p>
+                
+                <div class="mt-8 text-center">
+                    <div class="inline-block px-8 py-4 bg-white border border-[#EDE4FF] rounded-3xl">
+                        <p class="font-semibold text-xl">Felix the Cat</p>
+                        <p class="text-xs text-[#9F7AEA] mt-1 tracking-wider">BLINKS ONTO THE SCREEN</p>
+                    </div>
+                </div>
+                
+                <p class="text-center mt-8 text-xl">Felix smiles.<br>The woman smiles.<br><span class="font-semibold text-[#7C3AED]">Libby smiles.</span></p>
+            </div>
+
+            <!-- CLOSING -->
+            <div id="closing" class="chapter-anchor pt-20">
+                <div class="max-w-lg mx-auto text-center border-t border-[#EDE4FF] pt-12">
+                    <div class="mb-6">
+                        <i class="fa-solid fa-infinity text-5xl text-[#7C3AED]"></i>
+                    </div>
+                    
+                    <h3 class="heading-serif text-3xl mb-4">The Thread Continues</h3>
+                    
+                    <p class="text-[#5C4A7A] leading-relaxed">
+                        Felix is everywhere and nowhere.<br>
+                        He is the warrior weaver who mends what is broken with threads of gold.<br>
+                        He is the chestnut cat who leads the way through darkness.<br>
+                        He is the lavender London fog that still warms cold hands.
+                    </p>
+                    
+                    <div class="my-10 text-sm">
+                        <p class="font-medium">This store — <a href="https://felixology.com" target="_blank" rel="noopener noreferrer" class="text-[#7C3AED] font-semibold hover:underline">Felixology</a> — is the living continuation of his weaving.</p>
+                        <p class="mt-1 text-xs text-[#9F7AEA]">A place of books, whimsy, memory, and love.</p>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-[#EDE4FF]">
+                        <p class="text-xs tracking-[3px] text-[#9F7AEA]">FOR NOAH AND LIBBY</p>
+                        <p class="mt-2 text-sm text-[#6B5B95]">With all our love,<br>from those who remember the warrior weaver</p>
+                        <p class="mt-3 text-xs tracking-[2px] text-[#9F7AEA]">WOVEN BY NOAH CLAWSON</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2D1B4E] text-[#EDE4FF] py-12">
+        <div class="max-w-screen-xl mx-auto px-6 text-center">
+            <div class="flex justify-center mb-4">
+                <a href="https://felixology.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 group">
+                    <i class="fa-solid fa-infinity group-hover:text-[#C4B5FD] transition-colors"></i>
+                    <span class="font-bold tracking-tighter text-xl heading-serif group-hover:text-white transition-colors">FELIXOLOGY</span>
+                </a>
+            </div>
+            <p class="text-xs text-[#C4B5FD]">A transformative space for books, memory, and magic • In loving memory of Felix</p>
+            
+            <div class="mt-8 text-[10px] text-[#9F7AEA] tracking-widest">
+                THE FUTURE IS PAST • THE PAST IS BACKWARDS • BACKWARDS IS ONWARDS
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#7C3AED');
+        }
+        
+        // Smooth scroll for nav links
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Subtle fade-in for story sections on scroll
+        function setupScrollAnimations() {
+            const sections = document.querySelectorAll('.story-text, .memory-box');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0.92';
+                observer.observe(section);
+            });
+        }
+        
+        // Keyboard support for chapters
+        function setupKeyboardNav() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === '?') {
+                    const chapters = document.getElementById('chapters');
+                    if (chapters) chapters.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            
+            // Easter egg: press 'f' for Felix
+            let fPresses = 0;
+            document.addEventListener('keydown', function(e) {
+                if (e.key.toLowerCase() === 'f') {
+                    fPresses++;
+                    if (fPresses === 3) {
+                        const felix = document.createElement('div');
+                        felix.innerHTML = `<div class="fixed bottom-8 right-8 text-6xl animate-bounce">🐱</div>`;
+                        document.body.appendChild(felix.firstChild);
+                        setTimeout(() => {
+                            const cat = document.querySelector('.fixed.bottom-8.right-8');
+                            if (cat) cat.remove();
+                        }, 1800);
+                        fPresses = 0;
+                    }
+                }
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            setupSmoothScroll();
+            setupScrollAnimations();
+            setupKeyboardNav();
+            
+            // Gentle welcome console message for the curious
+            console.log('%c[Felixology] Transformative Tale loaded with love for Noah & Libby.', 'color:#9F7AEA; font-size: 9px');
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>
